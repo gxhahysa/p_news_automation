@@ -1,0 +1,12 @@
+{
+    "feed_list": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/list",
+    "name": "Feed list"
+  },
+    "news_feed_button": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/newsFragment",
+    "name": "News Feed button"
+  }
+}

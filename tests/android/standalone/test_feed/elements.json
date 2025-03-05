@@ -1,0 +1,118 @@
+{
+  "button_standalone": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/useStandaloneBackend",
+    "name": "Button Standalone"
+  },
+    "message_empty_list": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/message",
+    "name": "News is an empty list shown"
+    },
+    "feed_button": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/feedsFragment",
+    "name": "Feed button"
+    },
+    "opml_button_upload": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/importOpml",
+    "name": "OPML upload button"
+    },
+    "rss_feed_button_upload": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/fab",
+    "name": "RSS feed upload button"
+    },
+    "sample_file": {
+    "by": "id",
+    "selector": "com.google.android.documentsui:id/icon_thumb",
+    "name": "OPML sample file"
+    },
+    "rss_feed": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/fab",
+    "name": "RSS feed upload"
+    },
+    "rss_feed_textbox": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/url",
+    "name": "RSS feed textbox"
+    },
+    "add_rss_feed_button": {
+    "by": "id",
+    "selector": "android:id/button1",
+    "name": "Add feed button"
+    },
+    "wireless_moves_path": {
+    "by": "id",
+    "selector": "new UiSelector().resourceId(\"co.appreactor.news:id/actions\").instance(3)",
+    "name": "Wireless moves"
+    },
+    "delete_wireless_moves": {
+    "by": "id",
+    "selector": "new UiSelector().resourceId(\"co.appreactor.news:id/content\").instance(4)",
+    "name": "Wireless moves"
+    },
+    "feed_list": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/list",
+    "name": "Feed list"
+    },
+    "back_button_read": {
+    "by": "id",
+    "selector": "new UiSelector().className(\"android.widget.ImageButton\").instance(0)",
+    "name": "Back button "
+    },
+    "feed_settings": {
+    "by": "id",
+    "selector": "new UiSelector().description(\"More options\")",
+    "name": "Feed settings"
+    },
+    "show_read_news": {
+    "by": "id",
+    "selector": "new UiSelector().resourceId(\"co.appreactor.news:id/content\").instance(0)",
+    "name": "Show read news"
+    },
+    "exit_feed_list": {
+    "by": "id",
+    "selector": "new UiSelector().className(\"android.widget.ImageButton\")",
+    "name": "Exit feed list"
+    },
+    "feed_textbook": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/url",
+    "name": "Feedack textbox"
+    },
+    "feed_setting_for_rename": {
+    "by": "id",
+    "selector": "new UiSelector().resourceId(\"co.appreactor.news:id/actions\").instance(0)",
+    "name": "Feedack rename"
+    },
+    "rename_button": {
+    "by": "id",
+    "selector": "new UiSelector().text(\"Rename\")",
+    "name": "Rename button"
+    },
+    "textfield_rename": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/title",
+    "name": "Rename textfield"
+    },
+    "rename_button_textfield": {
+    "by": "id",
+    "selector": "android:id/button1",
+    "name": "Rename button in the textfield"
+    },
+    "feed_linear_layout": {
+    "by": "id",
+    "selector": "new UiSelector().className(\"android.widget.LinearLayout\").instance(9)",
+    "name": "Feed linear layour"
+    },
+    "feed_layout_class": {
+    "by": "id",
+    "selector": "new UiSelector().className(\"android.widget.LinearLayout\")",
+    "name": "Feed linear layour"
+    }
+}
+

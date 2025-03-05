@@ -1,0 +1,32 @@
+{
+    "feed_list": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/list",
+    "name": "Feed list"
+  },
+    "bookmark_button": {
+    "by": "accessibility_id",
+    "selector": "Bookmark",
+    "name": "Bookmark button "
+  },
+    "back_to_feed_button": {
+    "by": "id",
+    "selector": "new UiSelector().className(\"android.widget.ImageButton\").instance(0)",
+    "name": "Back button "
+  },
+    "bookmark_tab": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/bookmarksFragment",
+    "name": "Bookmark tab open "
+  },
+    "back_from_read_button": {
+    "by": "id",
+    "selector": "new UiSelector().className(\"android.widget.ImageButton\").instance(0)",
+    "name": "Back from read view "
+  },
+    "bookmark_remove_button": {
+    "by": "accessibility_id",
+    "selector": "Remove bookmark",
+    "name": "Bookmark remove button "
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "button_standalone": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/useStandaloneBackend",
+    "name": "Button Standalone"
+  }
+}
