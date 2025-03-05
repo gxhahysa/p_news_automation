@@ -22,6 +22,16 @@ def feed_fetcher(rss_feeds):
         pytest.fail("Failed to fetch the RSS feed after multiple retries.")
     return fetcher
 
+@pytest.fixture
+def podcast_feed_fetcher(rss_feeds):
+    """Create a feed fetcher using the tech RSS feed."""
+    fetcher = FeedFetcher("podcasts")
+    success = fetcher.fetch_feed()
+    if not success:
+        pytest.fail("Failed to fetch the tech RSS feed after multiple retries.")
+    return fetcher
+
+
 
 @pytest.mark.dependency()
 def test_app_launch(driver, launch_utils):
@@ -48,6 +58,20 @@ def test_rss_delete(driver, launch_utils):
     launch_utils.delete_feed()
     assert not launch_utils.read_feed_content_check('WirelessMoves'), "Deletion did not work"
 
+@pytest.mark.dependency()
+#@pytest.mark.skip # WIP podcast upload is not stable thats why skip
+def test_rss_podcast_upload(driver, launch_utils, podcast_feed_fetcher):
+    assert launch_utils.click_upload_rss_feed(), "Add rss feed didnt work"
+    launch_utils.upload_rss_podcast()
+    assert launch_utils.podcast_upload_check(), "PODCAST upload failed"
+    launch_utils.open_podcast_feed()
+    launch_utils.refresh_page()
+    launch_utils.open_feed_tile(podcast_feed_fetcher.get_first_entry_title())
+    assert launch_utils.feed_content_displayed(podcast_feed_fetcher.get_first_entry_title())
+    assert launch_utils.feed_is_downloadable()
+    launch_utils.back_from_feed_read_view()
+    launch_utils.exit_podcast_feed()
+
 @pytest.mark.dependency(depends=["test_app_launch"])
 def test_feed_result(driver, launch_utils, feed_fetcher):
     launch_utils.open_feed()
@@ -55,12 +79,6 @@ def test_feed_result(driver, launch_utils, feed_fetcher):
     launch_utils.open_feed_tile(feed_fetcher.get_first_entry_title())
     assert launch_utils.feed_content_displayed(feed_fetcher.get_first_entry_description()), "Feed content was not displayed"
     launch_utils.exit_back_from_read_view()
-
-@pytest.mark.skip # WIP podcast upload is not stable thats why skip
-def test_rss_podcast_upload(driver, launch_utils):
-    assert launch_utils.click_upload_rss_feed(), "Add rss feed didnt work"
-    launch_utils.upload_rss_podcast()
-    assert launch_utils.podcast_upload_check(), "PODCAST upload failed"
 
 @pytest.mark.dependency(depends=["test_feed_result"])
 def test_read_feed_content_dissapears_check(launch_utils, feed_fetcher):

@@ -122,6 +122,9 @@ class LaunchUtils:
         self.element_utils.click_by_element_containing_text('Nextcloud')
         self.element_utils.scroll_for_refresh()
 
+    def open_podcast_feed(self):
+        self.element_utils.click_by_element_containing_text('Health Report - Full program podcast')
+
     def feed_list_is_available(self) -> bool:
         selectors = self.element_selectors
         return self.element_utils.wait_and_validate_element_displayed_by_id(selectors.getSelector('feed_list'),
@@ -191,3 +194,29 @@ class LaunchUtils:
 
     def updated_is_already_existing(self) -> bool:
         return self.element_utils.is_text_duplicated_on_screen('Gesundheit und Medizin')
+
+    def open_podcast_feed(self):
+        selectors = self.element_selectors
+        self.element_utils.click_by_element_containing_text('Health Report - Full program podcast')
+
+    def feed_is_downloadable(self) -> bool:
+        selectors = self.element_selectors
+        return self.element_utils.wait_and_validate_element_displayed_by_id(selectors.getSelector('podcast_download'),
+                                                                     selectors.getName('podcast_download'),
+                                                                     10)
+
+    def refresh_page(self):
+        self.element_utils.scroll_for_refresh()
+
+    def back_from_feed_read_view(self):
+        selectors = self.element_selectors
+        self.element_utils.click_by_ANDROID_UIAUTOMATOR(selectors.getSelector('back_feed_read'),
+                                                        selectors.getName('back_feed_read'))
+
+    def exit_podcast_feed(self):
+        selectors = self.element_selectors
+        self.element_utils.click_by_ANDROID_UIAUTOMATOR(selectors.getSelector('exit_podcast_feed'),
+                                                        selectors.getName('exit_podcast_feed'))
+
+
+

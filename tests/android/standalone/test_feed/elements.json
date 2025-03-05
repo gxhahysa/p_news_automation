@@ -113,6 +113,21 @@
     "by": "id",
     "selector": "new UiSelector().className(\"android.widget.LinearLayout\")",
     "name": "Feed linear layour"
+    },
+    "podcast_download": {
+    "by": "id",
+    "selector": "co.appreactor.news:id/download",
+    "name": "Podcast download"
+    },
+    "back_feed_read": {
+    "by": "id",
+    "selector": "new UiSelector().className(\"android.widget.ImageButton\").instance(0)",
+    "name": "Back from feed read"
+    },
+    "exit_podcast_feed": {
+    "by": "id",
+    "selector": "new UiSelector().className(\"android.widget.ImageButton\")",
+    "name": "Back from feed read"
     }
 }
 

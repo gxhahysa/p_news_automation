@@ -1,4 +1,5 @@
 import logging
+import time
 
 from appium import webdriver
 from appium.webdriver.common.appiumby import AppiumBy
@@ -83,7 +84,37 @@ class ElementUtils:
         start_y = size['height'] * 0.2  # Starting near the top of the screen
         end_y = size['height'] * 0.8  # Ending near the bottom of the screen
 
-        self.driver.swipe(start_x,start_y,end_y,2500)
+        self.driver.swipe(start_x,start_y,end_y,3000)
+
+    def scroll_for_refresh_mobile_actions(self):
+        # Get screen dimensions
+        size = self.driver.get_window_size()
+        center_x = size['width'] / 2
+        start_y = size['height'] * 0.2  # Start near the top of the screen
+        end_y = size['height'] * 0.7  # Pull down to about 70% of the screen height
+
+        try:
+            # Create pointer action
+            actions = self.driver.action()
+
+            # Create action sequence for pull-to-refresh
+            actions.pointer_action.move_to_location(center_x, start_y)
+            actions.pointer_action.pointer_down()
+            actions.pointer_action.pause(300)  # Small pause after pressing down
+            actions.pointer_action.move_to_location(center_x, end_y)
+            actions.pointer_action.pause(600)  # Hold briefly at the bottom to trigger refresh
+            actions.pointer_action.release()
+            actions.perform()
+
+            # Wait briefly for refresh animation
+            time.sleep(1)
+
+            self.logger.info("Performed pull-to-refresh gesture using W3C Actions")
+        except Exception as e:
+            self.logger.error(f"Error performing pull-to-refresh: {e}")
+            # Fallback to legacy method if W3C actions fail
+            self.driver.swipe(center_x, start_y, center_x, end_y, 2500)
+            self.logger.info("Performed pull-to-refresh using legacy swipe")
 
     def count_elements_in_layout_by_uiselector(self, uiselector_value: str, child_type: str = None) -> int:
         try:
